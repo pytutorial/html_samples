@@ -1,0 +1,27 @@
+<button onclick="getCurrentWeather()">Lấy thông tin thời tiết</button>
+<div id="info" style="display:none">
+  <p>Nhiệt độ : <span id="temp"></span> °C</p>
+  <p>Độ ẩm : <span id="humidity"></span> %</p>
+  <p>Áp suất khí quyển : <span id="pressure"></span> atm</p>
+</div>
+<script>
+  function setText(elementId, text) {
+    var element = document.getElementById(elementId);
+    element.innerHTML = text;
+  }
+
+  function show(elementId) {
+    var element = document.getElementById(elementId);
+    element.style.display = "";
+  }
+
+  async function getCurrentWeather() {
+    var url = "http://api.openweathermap.org/data/2.5/weather?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9";
+    var response = await fetch(url);
+    var data = await response.json();
+    setText("temp", data.main.temp);
+    setText("humidity", data.main.humidity);
+    setText("pressure", data.main.pressure / 1000);
+    show("info");
+  }
+</script>

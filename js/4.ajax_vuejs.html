@@ -1,0 +1,50 @@
+<div id="app">
+  <button v-on:click="getWeather()">Lấy thông tin thời tiết</button>
+  <div v-if="current_weather">
+    <p><b>Thời tiết hiện tại</b></p>
+    <p>Nhiệt độ : {{ current_weather.main.temp }} °C</p>
+    <p>Độ ẩm : {{ current_weather.main.humidity }} %</p>
+    <p>Áp suất khí quyển : {{ current_weather.main.pressure }} atm</p>
+  </div>
+  <br>
+  <div v-if="next24h_weather">
+    <p><b>Thời tiết 24h tới</b></p>
+    <table border="1">
+      <tr>
+        <th style="width:25%">Thời gian</th>
+        <th style="width:25%">Nhiệt độ °C</th>
+        <th style="width:25%">Độ ẩm (%)</th>
+        <th style="width:25%">Áp suất khí quyển (atm)</th>
+      </tr>
+      <tr v-for="weather in next24h_weather.list">
+        <td style="text-align:center">{{ weather.dt_txt }}</td>
+        <td style="text-align:center">{{ weather.main.temp }}</td>
+        <td style="text-align:center">{{ weather.main.humidity }}</td>
+        <td style="text-align:center">{{ weather.main.pressure }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      current_weather: null,
+      next24h_weather: null
+    },
+
+    methods: {
+      getWeather: async function () {
+        var url = "http://api.openweathermap.org/data/2.5/weather?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9";
+        var response = await fetch(url);
+        this.current_weather = await response.json();
+
+        url = "http://api.openweathermap.org/data/2.5/forecast?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9&cnt=8";
+        var response = await fetch(url);
+        this.next24h_weather = await response.json();
+      }
+    },
+  });
+</script>

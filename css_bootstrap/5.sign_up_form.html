@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
+
+<style>
+  .bg-signup {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    color: #fff;
+    background-image: url(background.png);
+    background-position: right 0px top 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  .signup-form {
+    border: 1px solid #DDD;
+    max-width: 400px;
+    padding: 20px;
+    margin: 150 auto 0 auto;
+  }
+
+  .label-title {
+    color: #fff;
+    font-weight: bold;
+  }
+</style>
+
+<body class="bg-signup">
+  <div class="signup-form">
+    <h3>Đăng ký tài khoản</h3>
+    <br>
+    <form method="POST">
+      <div class="form-group">
+        <label class="label-title">Tên tài khoản</label>
+        <input name="username" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="label-title">Mật khẩu</label>
+        <input name="password1" type="password" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="label-title">Mật khẩu xác thực</label>
+        <input name="password2" type="password" class="form-control" />
+      </div>
+      <div class="form-group">
+        <span id="error" style="color:red"></span>
+      </div>
+      <br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+      </div>
+    </form>
+  </div>
+</body>

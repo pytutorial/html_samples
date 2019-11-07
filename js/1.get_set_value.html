@@ -1,0 +1,17 @@
+<input id="product_name" placeholder="Nhập tên sản phẩm">
+<button onclick="getValue()">Lấy giá trị</button>
+<button onclick="setValue()">Đặt giá trị</button>
+
+<script>
+  function getValue() {
+    var input = document.getElementById("product_name");
+    var productName = input.value;
+    alert("Tên sản phẩm: " + productName);
+  }
+
+  function setValue() {
+    var input = document.getElementById("product_name");
+    input.value = "Sản phẩm 1";
+  }
+
+</script>
