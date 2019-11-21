@@ -1,0 +1,56 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>      
+	  <div id = "databinding">
+         <button v-on:click = "showdata" v-bind:style = "styleobj">Click Me</button>
+         <span><b>{{show}}</b></span>
+         <h1 v-if = "show">This is h1 tag</h1>
+         <h2 v-else>This is h2 tag</h2>
+		 <div v-show = "show">
+            <b>V-Show:</b>
+            <img src = "images/img.png" width = "100" height = "100" />
+         </div>
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#databinding',
+            data: {
+               show: true,               
+            },
+            methods : {
+               showdata : function() {
+                  this.show = !this.show;
+               }
+            },
+         });
+      </script>
+	  
+	  <br><br>
+	  <div id = "databinding2">
+         <input type = "text" v-on:keyup.enter = "showinputvalue" placeholder = "Enter Fruits Names"/>
+         <h1 v-if = "items.length>0">Display Fruits Name</h1>
+         <ul>
+            <li v-for = "a in items">{{a}}</li>
+         </ul>
+		 <ul>
+            <li v-for = "(a, index) in items">{{index+1}}--{{a}}</li>
+         </ul>
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#databinding2',
+            data: {
+               items:[],               
+            },
+            methods : {
+               showinputvalue : function(event) {
+                  this.items.push(event.target.value);
+               }
+            },
+         });
+      </script>
+   </body>
+</html>

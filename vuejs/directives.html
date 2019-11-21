@@ -1,0 +1,43 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "databinding">
+         <div v-changestyle = "{color:'green', fontSize: '35px'}">VueJS Directive</div>
+      </div>
+      <script type = "text/javascript">
+         Vue.directive("changestyle",{
+            bind(e1,binding, vnode) {               
+               e1.style.color = binding.value.color;
+               e1.style.fontSize = binding.value.fontSize;
+            }
+         });
+         var vm = new Vue({
+            el: '#databinding',
+            data: {},
+            methods : {},
+         });
+      </script>
+	  
+	  
+	  <div id = "databinding2">
+         <input  v-model = "name" placeholder = "Enter Name" /><br/>
+         <span><b>Letter count is : {{name | countletters}}</b></span>
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#databinding2',
+            data: {
+               name : ""
+            },
+            filters : {
+               countletters : function(value) {
+                  return value.length;
+               }
+            }
+         });
+      </script>
+   </body>
+</html>

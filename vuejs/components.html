@@ -1,0 +1,33 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "component_test">
+         <testcomponent></testcomponent>
+      </div>
+      <div id = "databinding">
+         <component v-bind:is = "view"></component>
+      </div>
+      <script type = "text/javascript">
+		Vue.component('testcomponent',{
+		   template : '<div><h1>This is coming from component</h1></div>'
+		});
+		var vm = new Vue({
+		   el: '#component_test'
+		});
+		var vm1 = new Vue({
+            el: '#databinding',
+            data: {
+               view: 'component1'
+            },
+            components: {
+               'component1': {
+                  template: '<div><span style = "font-size:25;color:red;">Dynamic Component</span></div>'
+               }
+            }
+         });
+	  </script>
+   </body>
+</html>
