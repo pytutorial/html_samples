@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id='app'>
+  <form id='fmt'>
+    <input type="hidden" name="dm_type" value="DM_LOAI_BENH_AN">
+    Chọn file : <input type="file" name="csv_file">
+    <br><input type='button' v-on:click="upload()" value="Upload" >
+  </form>
+</div>
+
+<script>
+  new Vue({
+    'el': '#app',
+    methods: {
+      upload: async function() {
+        var formData = new FormData(document.getElementById("fmt"));
+        var response = await fetch('http://emr.com.vn:8001/api/danhmuc/import_dm_list',
+          { body: formData, method: 'POST' });
+        var result = await response.json();
+        alert(result.success);
+        console.log(result);
+      }
+    }
+  })
+</script>
