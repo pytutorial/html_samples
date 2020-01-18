@@ -1,0 +1,50 @@
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/react-router/umd/react-router.min.js"></script>
+<script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+<script>
+  const Router = window.ReactRouterDOM.BrowserRouter;
+  const Route = window.ReactRouterDOM.Route;
+  const Link = window.ReactRouterDOM.Link;
+  const Prompt = window.ReactRouterDOM.Prompt;
+  const Switch = window.ReactRouterDOM.Switch;
+  const Redirect = window.ReactRouterDOM.Redirect;
+</script>
+<script type="text/babel">
+  function App() {
+    return (
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/page2">Page 2</Link>
+              </li>
+              <li>
+                <Link to="/page3">Page 3</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Switch>
+            <Route path="/page2">
+              <div>Page 2</div>
+            </Route>
+            <Route path="/page3">
+              <div>Page 3</div>
+            </Route>
+            <Route path="/">
+              <div>Home</div>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>
