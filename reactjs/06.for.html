@@ -2,43 +2,43 @@
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <div id="app"></div>
-
+  
 <script type="text/babel">
-  class App extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        students: [
-          { name: "Nguyen Van A", address: "Ha Noi" },
-          { name: "Nguyen Van B", address: "TP. HCM" }
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+        students : [
+            {name: "Nguyen Van A", address: "Ha Noi"},
+            {name: "Nguyen Van B", address: "TP. HCM"}                
         ]
-      }
-    }
-
-    render() {
-      return (
-        <table border="1">
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên</th>
-              <th>Địa chỉ</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.students.map((st, i) =>
-              (
-                <tr key={i}>
-                  <td>{i + 1}</td>
-                  <td>{st.name}</td>
-                  <td>{st.address}</td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </table>
-      )
     }
   }
-  ReactDOM.render(<App />, document.getElementById('app'));
+
+  render() {
+    return (
+        <table border="1">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Địa chỉ</th>
+            </tr>
+            </thead>
+            <tbody>
+                {this.state.students.map((st,i) => 
+                    (
+                        <tr key={i}>
+                            <td>{i+1}</td>
+                            <td>{st.name}</td>
+                            <td>{st.address}</td>
+                        </tr>
+                    )
+                )}
+            </tbody>
+        </table>
+    )
+  }
+}
+ReactDOM.render(<App/>, document.getElementById('app'));
 </script>
