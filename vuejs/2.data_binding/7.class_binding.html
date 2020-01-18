@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<style>
+  .active {
+     color: #4F8A10;
+     background-color: #DFF2BF;
+  }
+  .displayError{
+     color: #D8000C;
+     background-color: #FFBABA;
+  }
+</style>
+<div id="app">
+  <div v-bind:class="{ active: isActive, 'displayError': hasError }"><b>{{title}}</b></div>
+  <div v-bind:class="['active', 'displayError']"><b>{{title}}</b></div>
+  <div v-bind:class="[isActive ? 'active' : '', hasError? 'displayError' : '']"><b>{{title}}</b></div>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      title: "CLASS BINDING",
+      isActive: true,
+      hasError: false,
+    }
+  });
+</script>

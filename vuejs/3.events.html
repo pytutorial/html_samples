@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+   <button v-on:click.once="buttonclickedonce">Click Once</button>
+   Output:{{clicknum}}
+   <br /><br />
+   <button v-on:click="buttonclicked">Click Me</button>
+   Output:{{clicknum1}}
+</div>
+<script type="text/javascript">
+   new Vue({
+      el: '#app',
+      data: {
+         clicknum: 0,
+         clicknum1: 0,
+      },
+      methods: {
+         buttonclickedonce: function () {
+            this.clicknum++;
+         },
+         buttonclicked: function () {
+            this.clicknum1++;
+         }
+      }
+   });
+</script>

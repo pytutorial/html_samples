@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <Block :text="text1"></Block>
+  <component :is="view" text="Block 2"></component>
+</div>
+
+<script type="text/javascript">
+  Vue.component('Block', {
+    props: ['text'],
+    template: '<div>{{text}}</div>'
+  });
+
+  new Vue({
+    el: '#app',
+    data: {
+      view: 'Block',
+      text1: "Block 1"
+    }
+  });
+</script>

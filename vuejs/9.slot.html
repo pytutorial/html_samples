@@ -1,0 +1,14 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id = "app">
+   <Block>Block 1</Block>
+   <Block>Block 2</Block>
+</div>
+<script type = "text/javascript">
+   Vue.component('Block',{
+      template : '<h1><slot></slot></h1>'
+   });
+   new Vue({
+      el: '#app'
+   });
+</script>

@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="getWeather()">Lấy thông tin thời tiết</button>
+  <div v-if="current_weather">
+    <p><b>Thời tiết hiện tại</b></p>
+    <p>Nhiệt độ : {{ current_weather.main.temp }} °C</p>
+    <p>Độ ẩm : {{ current_weather.main.humidity }} %</p>
+    <p>Áp suất khí quyển : {{ current_weather.main.pressure/1000 }} atm</p>
+  </div>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      current_weather: null,
+    },
+
+    methods: {
+      getWeather: async function () {
+        var url = "http://api.openweathermap.org/data/2.5/weather?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9";
+        var response = await fetch(url);
+        this.current_weather = await response.json();
+      }
+    },
+  });
+</script>

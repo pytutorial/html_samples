@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <input type="text" v-model="firstName" placeholder="First name" />
+  <br>
+  <input type="text" v-model="lastName" placeholder="Last name" />
+  <br>
+  Full name : {{ fullname }}
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      firstName: "",
+      lastName: ""
+    },
+    computed: {
+      fullname: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+  });
+</script>
