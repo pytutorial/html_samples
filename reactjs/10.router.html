@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
 <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/react-router/umd/react-router.min.js"></script>
@@ -10,36 +11,28 @@
   const Link = window.ReactRouterDOM.Link;
   const Prompt = window.ReactRouterDOM.Prompt;
   const Switch = window.ReactRouterDOM.Switch;
-  const Redirect = window.ReactRouterDOM.Redirect;
 </script>
 <script type="text/babel">
   function App() {
     return (
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/page2">Page 2</Link>
-              </li>
-              <li>
-                <Link to="/page3">Page 3</Link>
-              </li>
-            </ul>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div className="navbar-nav">
+              <Link to="/" className="nav-item nav-link">Home page</Link>
+              <Link to="/page2" className="nav-item nav-link">Page 2</Link>
+              <Link to="/page3" className="nav-item nav-link">Page 3</Link>
+            </div>
           </nav>
-
           <Switch>
             <Route path="/page2">
-              <div>Page 2</div>
+              <div>Page 2 ...</div>
             </Route>
             <Route path="/page3">
-              <div>Page 3</div>
+              <div>Page 3 ...</div>
             </Route>
             <Route path="/">
-              <div>Home</div>
+              <div>Home ...</div>
             </Route>
           </Switch>
         </div>

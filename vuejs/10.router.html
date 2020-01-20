@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">      
+        <div class="navbar-nav">
+          <router-link to='/' class="nav-item nav-link" :class="{'active': activeTab==1}">Home page</router-link>
+          <router-link to='/page2' class="nav-item nav-link" :class="{'active': activeTab==2}">Page 2</router-link>
+          <router-link to='/page3' class="nav-item nav-link" :class="{'active': activeTab==3}">Page 3</router-link>
+        </div>
+    </nav>
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript">
+  const Home = { template: '<div>Home page ...</div>' }
+  const Page2 = { template: '<div>Page 2 ...</div>' }
+  const Page3 = { template: '<div>Page 3 ....</div>' }
+  
+  const routes = [
+    { path: '/', component: Home },
+    { path: '/page2', component: Page2 , meta: {tab:2}},
+    { path: '/page3', component: Page3, meta: {tab:3} }
+  ];
+  const router = new VueRouter({
+    routes 
+  });
+  var vm = new Vue({
+    el: '#app',
+    router,
+    computed : {
+        activeTab() {
+            return this.$route.meta.tab || 1;
+        }
+    }
+  });
+</script>
