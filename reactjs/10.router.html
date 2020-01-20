@@ -11,17 +11,20 @@
   const Link = window.ReactRouterDOM.Link;
   const Prompt = window.ReactRouterDOM.Prompt;
   const Switch = window.ReactRouterDOM.Switch;
+  const withRouter = window.ReactRouterDOM.withRouter;
+  const useLocation = window.ReactRouterDOM.useLocation;
 </script>
 <script type="text/babel">
-  function App() {
+  function App(props) {
+    let path = props.match.path;
     return (
       <Router>
         <div>
           <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="navbar-nav">
-              <Link to="/" className="nav-item nav-link">Home page</Link>
-              <Link to="/page2" className="nav-item nav-link">Page 2</Link>
-              <Link to="/page3" className="nav-item nav-link">Page 3</Link>
+              <Link to="/" className={"nav-item nav-link" + ((path==='/')? " active" : "")}>Home page</Link>
+              <Link to="/page2" className={"nav-item nav-link" + ((path==='/page2')? " active" : "")}>Page 2</Link>
+              <Link to="/page3" className={"nav-item nav-link" + ((path==='/page3')? " active" : "")}>Page 3</Link>
             </div>
           </nav>
           <Switch>
@@ -39,5 +42,6 @@
       </Router>
     );
   }
-  ReactDOM.render(<App />, document.getElementById('app'));
+  var App2 = withRouter(App);
+  ReactDOM.render(<Router><App2 /></Router>, document.getElementById('app'));
 </script>
