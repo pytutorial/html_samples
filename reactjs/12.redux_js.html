@@ -1,4 +1,5 @@
-<!--https://github.com/reduxjs/redux/blob/master/examples/counter-vanilla/index.html-->
+<!-- Source: https://github.com/reduxjs/redux/blob/master/examples/counter-vanilla/index.html -->
+
 <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
 
 <div>
@@ -11,11 +12,7 @@
   </p>
 </div>
 <script>
-  function counter(state, action) {
-    if (typeof state === 'undefined') {
-      return 0
-    }
-
+  function counter(state = 0, action) {
     switch (action.type) {
       case 'INCREMENT':
         return state + 1

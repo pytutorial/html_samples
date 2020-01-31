@@ -1,0 +1,57 @@
+<!-- Source: https://github.com/reduxjs/redux/blob/master/examples/counter -->
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script type="text/babel">
+  function counter(state = 0, action) {
+    switch (action.type) {
+      case 'INCREMENT':
+        return state + 1
+      case 'DECREMENT':
+        return state - 1
+      default:
+        return state
+    }
+  }
+  const store = Redux.createStore(counter);
+
+  class Counter extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    incrementAsync = () => {
+      setTimeout(this.props.onIncrement, 1000)
+    }
+
+    render() {
+      const { value, onIncrement, onDecrement } = this.props
+      return (
+        <p>
+          Clicked: {value} times &nbsp;
+          <button onClick={onIncrement}>+</button> &nbsp;
+          <button onClick={onDecrement}>-</button> &nbsp;
+          <button onClick={this.incrementAsync}>Increment async</button>
+        </p>
+      )
+    }
+  }
+
+  function App() {
+    return (
+      <Counter
+        value={store.getState()}
+        onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+        onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+      />
+    )
+  }
+
+  const render = () => ReactDOM.render(<App />, document.getElementById('app'));
+  render();
+  store.subscribe(render);
+</script>
