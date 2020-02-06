@@ -15,7 +15,7 @@
     methods: {
       upload: async function() {
         var formData = new FormData(document.getElementById("fmt"));
-        var response = await fetch('http://emr.com.vn:8001/api/danhmuc/import_dm_list',
+        var response = await fetch('http://test.com/upload',
           { body: formData, method: 'POST' });
         var result = await response.json();
         alert(result.success);
