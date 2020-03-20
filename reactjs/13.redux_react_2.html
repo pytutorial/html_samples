@@ -1,0 +1,47 @@
+<!-- Source: https://github.com/reduxjs/redux/blob/master/examples/counter -->
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<div id="app"></div>
+
+<script type="text/babel">
+  function counter(state = 0, action) {
+    switch (action.type) {
+      case 'INCREMENT':
+        return state + 1
+      case 'DECREMENT':
+        return state - 1
+      default:
+        return state
+    }
+  }
+  const store = Redux.createStore(counter);
+
+  function Panel() {
+    return <div>Clicked: {store.getState()} times &nbsp;</div>
+  }
+
+  function Control() {
+    return (
+      <p>
+        <button onClick={() => store.dispatch({ type: 'INCREMENT' })}>+</button> &nbsp;
+        <button onClick={() => store.dispatch({ type: 'DECREMENT' })}>-</button> &nbsp;
+      </p>
+    )
+  }
+
+  function App() {
+    return (
+      <div>
+        <Panel />
+        <Control />
+      </div>
+    )
+  }
+
+  const render = () => ReactDOM.render(<App />, document.getElementById('app'));
+  render();
+  store.subscribe(render);
+</script>
