@@ -15,11 +15,14 @@
       <tr>
         <th>Gender:&nbsp;</th>
         <td>
-          <input type="radio" checked={gender == "male"} name="gender" /> Male
-          &nbsp;
+          <input type="radio" checked={gender == "male"} name="gender" /> 
+          Male&nbsp;
+
           <input type="radio" checked={gender == "female"} name="gender" />
           Female &nbsp;
-          <input type="radio" checked={gender == "other"} name="gender" /> Other
+          
+          <input type="radio" checked={gender == "other"} name="gender" /> 
+          Other
         </td>
       </tr>
       <tr>
