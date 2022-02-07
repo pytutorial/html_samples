@@ -1,20 +1,20 @@
-<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
 <div id="app"></div>
 
 <script type="text/babel">
   class App extends React.Component {
     constructor() {
       super();
-      this.state = {}
+      this.state = {current_weather: null}
     }
 
     getData = async () => {
       var url = "http://api.openweathermap.org/data/2.5/weather?id=1581129&units=metric&appid=d6477696b63c2e661af64eead58c11d9";
       var response = await fetch(url);
-      this.state.current_weather = await response.json();
-      this.forceUpdate();
+      var result = await response.json();
+      this.setState({current_weather:  result});
     }
 
     render() {
