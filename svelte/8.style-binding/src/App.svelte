@@ -2,5 +2,5 @@
   let color = 'red';
 </script>
 <main>
-	<div style="color:{color}">Hello</div>
+  <div style="color:{color}">Hello</div>
 </main>

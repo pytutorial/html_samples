@@ -1,5 +1,5 @@
 <script>
-	let data = {};
+  let data = {};
 
   function handleChange(e) {
     data[e.target.name] = e.target.value;
