@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vuex@4.0.0/dist/vuex.global.js"></script>
+
+<div id="app">
+  <p>{{ count }}</p>
+  <p>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  </p>
+</div>
+
+<script>
+  const store = Vuex.createStore({
+    state: {
+      count: 0
+    },
+    mutations: {
+      increment: state => state.count++,
+      decrement: state => state.count--
+    }
+  })
+
+  const app = Vue.createApp({
+    computed: {
+      count() {
+        return store.state.count
+      }
+    },
+    methods: {
+      increment() {
+        store.commit('increment')
+      },
+      decrement() {
+        store.commit('decrement')
+      }
+    }
+  });
+  
+  app.use(store);
+  app.mount('#app');
+</script>

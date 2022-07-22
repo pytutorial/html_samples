@@ -1,0 +1,15 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+<div id="app">
+   <h1>{{ message }}</h1>
+</div>
+
+<script type="text/javascript">
+   Vue.createApp({
+      data: function(){
+         return {
+            message: 'My first VueJS Task'
+         }
+      }
+   }).mount('#app')
+</script>

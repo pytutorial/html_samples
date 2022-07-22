@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
   .bg-signup {
@@ -15,6 +15,7 @@
 
   .signup-form {
     border: 1px solid #DDD;
+    border-radius: 4px;
     max-width: 400px;
     padding: 20px;
     margin: 100 auto 0 auto;
@@ -27,23 +28,23 @@
     <h3>Đăng ký tài khoản</h3>
     <br>
     <form method="POST">
-      <div class="form-group">
-        <label>Tên tài khoản</label>
+      <div class="mb-3">
+        <label class="form-label">Tên tài khoản:</label>
         <input name="username" type="text" class="form-control" />
       </div>
-      <div class="form-group">
-        <label>Mật khẩu</label>
+      <div class="mb-3">
+        <label class="form-label">Mật khẩu:</label>
         <input name="password1" type="password" class="form-control" />
       </div>
-      <div class="form-group">
-        <label>Mật khẩu xác thực</label>
+      <div class="mb-3">
+        <label class="form-label">Mật khẩu xác thực:</label>
         <input name="password2" type="password" class="form-control" />
       </div>
-      <div class="form-group">
+      <div>
         <span id="error" style="color:red"></span>
       </div>
       <br>
-      <div class="form-group">
+      <div class="d-grid">
         <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
       </div>
     </form>

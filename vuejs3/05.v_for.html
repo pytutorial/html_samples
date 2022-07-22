@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">
+  <table border="1">
+    <tr>
+      <th>STT</th>
+      <th>Họ tên</th>
+      <th>Địa chỉ</th>
+    </tr>
+    <tr v-for="(st,i) in students" :key="i">
+      <td>{{i+1}}</td>
+      <td>{{st.name}}</td>
+      <td>{{st.address}}</td>
+    </tr>
+  </table>
+</div>
+
+<script type="text/javascript">
+  Vue.createApp({
+    data: function(){
+      return {
+        students: [
+          { name: "Nguyễn Văn A", address: "Hà Nội" },
+          { name: "Nguyễn Văn B", address: "TP. HCM" }
+        ]
+      }
+    }
+  }).mount('#app');
+</script>

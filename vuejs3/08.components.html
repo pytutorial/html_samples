@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">
+  <Block :text="text1"></Block>
+  <component :is="view" text="Block 2"></component>
+</div>
+
+<script type="text/javascript">
+  let Block = {
+    props: ['text'],
+    template: '<div>{{text}}</div>'
+  }
+
+  Vue.createApp({
+    components: {
+      Block
+    },
+    data: function() {
+      return {
+        view: 'Block',
+        text1: "Block 1"
+      }
+    }
+  }).mount('#app');
+</script>

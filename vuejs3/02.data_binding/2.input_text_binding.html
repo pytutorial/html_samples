@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">
+  <input v-model="name" placeholder="Enter Name" />
+  <h3>Name entered is : {{name}}</h3>
+  <hr />
+  <h3>Textarea</h3>
+  <textarea v-model="textmessage" placeholder="Add Details"></textarea>
+  <h1>
+    <p>{{textmessage}}</p>
+  </h1>
+</div>
+
+<script type="text/javascript">
+  Vue.createApp({
+    data: function(){
+      return {
+        name: '',
+        textmessage: ''
+      }
+    }
+  }).mount('#app');
+</script>

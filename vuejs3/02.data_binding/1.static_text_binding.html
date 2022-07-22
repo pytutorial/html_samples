@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">
+  {{title}}<br />
+  <a :href="hreflink" target="_blank">Click Me </a> <br />  
+</div>
+
+<script type="text/javascript">
+  Vue.createApp({
+    data: function(){
+      return {
+        title: "DATA BINDING",
+        hreflink: "http://www.google.com"     
+      }
+    }
+  }).mount('#app');
+</script>

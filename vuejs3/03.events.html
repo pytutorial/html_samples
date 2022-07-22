@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">
+   <button v-on:click.once="buttonclickedonce">Click Once</button>
+   Output:{{clicknum}}
+   <br /><br />
+   <button v-on:click="buttonclicked">Click Me</button>
+   Output:{{clicknum1}}
+</div>
+
+<script type="text/javascript">
+   Vue.createApp({
+      data: function() {
+        return {
+          clicknum: 0,
+          clicknum1: 0,
+        }
+      },
+      methods: {
+        buttonclickedonce: function () {
+          this.clicknum++;
+        },
+        buttonclicked: function () {
+          this.clicknum1++;
+        }
+      }
+   }).mount('#app');
+</script>

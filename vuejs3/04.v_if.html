@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id = "app">
+   <button v-on:click = "toggleShow()">Toggle</button>
+   <h1 v-if = "show">This is h1 tag</h1>
+   <h2 v-else>This is h2 tag</h2>
+ </div>
+
+ <script type = "text/javascript">
+    Vue.createApp({
+       data: function() {
+         return{
+          show: true,
+         }
+       },
+       methods : {
+          toggleShow : function() {
+            this.show = !this.show;
+          }
+       },
+    }).mount('#app');
+ </script>

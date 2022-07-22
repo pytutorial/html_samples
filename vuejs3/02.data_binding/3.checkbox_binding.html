@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue@3"></script>
+
+<div id="app">
+  <input type="checkbox" id="checkbox" v-model="checked"> {{checked}}
+</div>
+
+<script type="text/javascript">
+  Vue.createApp({
+    data: function(){
+      return {
+        checked: false
+      }
+    }
+  }).mount('#app');
+</script>
